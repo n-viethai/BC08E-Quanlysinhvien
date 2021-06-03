@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="form-group p-5">
+            <h2 class="text-center">Quản lý sinh viên</h2>
+            <label class="mt-3">Mã sinh viên</label>
+            <input type="text" class="form-control mt-3" id="maNhanVien">
+            <p class="text text-danger" id="error_requied_maSinhVien"></p>
+
+            <label class="mt-3">Tên sinh viên</label>
+            <input type="text" class="form-control mt-3" id="tenNhanVien">
+            <p class="text text-danger" id="error_requied_tenSinhVien"></p>
+
+            <label class="mt-3">Loại sinh viên</label>
+            <select name="" id="loaiSinhVien" class="form-select mt-3">
+                <option value="Thường">Thường</option>
+                <option value="Khó khăn">Khó khăn</option>
+            </select>
+
+            <label  class="mt-3">Email</label>
+            <input type="text" class="form-control mt-3" id="email">
+            <p class="text text-danger" id="error_requied_email"></p>
+
+            <label for="" class="mt-3">Số điện thoại</label>
+            <input type="text" class="form-control mt-3" id="soDienThoai">
+            <p class="text text-danger" id="error_requied_soDienThoai"></p>
+            <div class="row mt-3">
+                <div class="col-4">
+                    <label for="">Điểm toán</label>
+                    <input type="text" class="form-control mt-3" id="diemToan">
+                    <p class="text text-danger" id="error_requied_diemToan"></p>
+                </div>
+                <div class="col-4">
+                    <label for="">Điểm lý</label>
+                    <input type="text" class="form-control mt-3" id="diemLy">
+                    <p class="text text-danger" id="error_requied_diemLy"></p>
+
+                </div>
+                <div class="col-4">
+                    <label for="">Điểm hóa</label>
+                    <input type="text" class="form-control mt-3" id="diemHoa">
+                    <p class="text text-danger" id="error_requied_diemHoa"></p>
+
+                </div>
+            </div>
+            <label for="" class="mt-3">Điểm rèn luyện</label>
+            <input type="text" class="form-control mt-3" id="diemRenLuyen">
+            <p class="text text-danger" id="error_requied_diemRenLuyen"></p>
+
+            <div class="mt-3 text-center">
+                <button class="btn btn-success p-3" id="themSinhVien">Thêm sinh viên</button>
+                <button class="btn btn-info text-white p-3" id="capNhapThongTin">Cập nhật</button>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Mã sinh viên</th>
+                    <th>Tên sinh viên</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
+                    <th>Loại sinh viên</th>
+                    <th>Điểm trung bình</th>
+                    <th>Điểm rèn luyện</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tblSinhVien">
+                <tr>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <script src="./models/SinhVien.js"></script>
+    <script src="./models/Validation.js"></script>
+
+    <script src="./controllers/index.js"></script>
+</body>
+</html>
