@@ -2,7 +2,6 @@ var arrSinhVien = [];
 
 document.querySelector("#themSinhVien").onclick = function () {
   var sinhVien = new SinhVien();
-  var kiemTra = new Validation();
 
   sinhVien.maSinhVien = document.querySelector("#maNhanVien").value;
   sinhVien.tenSinhVien = document.querySelector("#tenNhanVien").value;
@@ -18,21 +17,10 @@ document.querySelector("#themSinhVien").onclick = function () {
   // kiểm tra dữ liệu trước khi đưa vào mảng
 
   // ---------------------------validation-----------------------------
-
+  var kiemTra = new Validation();
   var valid = true;
 
-  // if (sinhVien.maSinhVien === '') {
-  //   document.querySelector('#error_requied_maSinhVien').innerHTML = 'Mã sinh viên không được bỏ trống';
-  //   valid = false;
-  // } else {
-  //   document.querySelector('#error_requied_maSinhVien').innerHTML = '';
-  // }
-
-  // if (sinhVien.tenSinhVien === '') {
-  //   document.querySelector('#error_requied_tenSinhVien').innerHTML = 'Tên sinh viên không được bỏ trống';
-  //   valid = false;
-  // }
-
+  // kiểm tra rỗng
   valid &= kiemTra.kiemTraRong(sinhVien.maSinhVien,'#error_requied_maSinhVien','Mã sinh viên')
   &kiemTra.kiemTraRong(sinhVien.tenSinhVien,'#error_requied_tenSinhVien','Tên sinh viên')
   &kiemTra.kiemTraRong(sinhVien.email,'#error_requied_email','email')
@@ -41,6 +29,20 @@ document.querySelector("#themSinhVien").onclick = function () {
   &kiemTra.kiemTraRong(sinhVien.diemLy,'#error_requied_diemLy','Điểm lý')
   &kiemTra.kiemTraRong(sinhVien.diemHoa,'#error_requied_diemHoa','Điểm toán')
   &kiemTra.kiemTraRong(sinhVien.diemRenLuyen,'#error_requied_diemRenLuyen','Điểm rèn luyện');
+
+  // kiểm tra định dạng
+
+  valid &= kiemTra.kiemTraKytu(sinhVien.tenSinhVien,'#error_allLetter_tenSinhVien','Tên sinh viên');
+
+  // kiểm tra độ dài
+
+  valid &= kiemTra.kiemTraDoDai(sinhVien.maSinhVien,'#error_minMaxLength_maSinhVien',6,16,'Mã sinh viên');
+
+  // kiểm tra giới hạn của giá trị
+
+  valid &= kiemTra.kiemTraGiaTri(sinhVien.diemToan,'#error_minMaxValue_diemToan',0,10,'Điểm toán')
+  &kiemTra.kiemTraGiaTri(sinhVien.diemLy,'#error_minMaxValue_diemLy',0,10,'Điểm lý')
+  &kiemTra.kiemTraGiaTri(sinhVien.diemHoa,'#error_minMaxValue_diemHoa',0,10,'Điểm hóa');
 
   if(!valid) {
     return;
@@ -128,7 +130,7 @@ document.querySelector("#themSinhVien").onclick = function () {
 function renderTableSinhVien(arrSinhVien) {
   var content = "";
 
-  for (var index = 0; index < arrSinhVien.length; index++) {
+  for (var index = 0; index < arrSinhVien.length; index++) { 
     var sv = arrSinhVien[index];
     
     var sinhVien = new SinhVien();
@@ -159,7 +161,7 @@ function renderTableSinhVien(arrSinhVien) {
                     </button> 
                     <button  onclick = "chinhSua('${
                       sinhVien.maSinhVien
-                    }')" class = "btn btn-info">
+                    }')" class = "btn btn-warning text-white ms-3">
                         Chỉnh sửa
                     </button> 
                 </td>
