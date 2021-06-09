@@ -36,7 +36,7 @@ var SinhVien = function () {
             } else if (dtb >= 9 && dtb < 10) {
                 return 'Xuất sắc';
             } else {
-                return 'Không hợp lý';
+                return 'Không hợp lý'; 
             }
         }
     }
