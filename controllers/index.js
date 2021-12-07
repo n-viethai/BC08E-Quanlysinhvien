@@ -44,6 +44,8 @@ document.querySelector("#themSinhVien").onclick = function () {
   &kiemTra.kiemTraGiaTri(sinhVien.diemLy,'#error_minMaxValue_diemLy',0,10,'Điểm lý')
   &kiemTra.kiemTraGiaTri(sinhVien.diemHoa,'#error_minMaxValue_diemHoa',0,10,'Điểm hóa');
 
+  console.log(typeof valid);
+  
   if(!valid) {
     return;
   }
